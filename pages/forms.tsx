@@ -1,56 +1,21 @@
-import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 
 export default function Forms() {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [formErrors, setFormErros] = useState("");
+  const { register, watch } = useForm();
 
-  const onUsernameChange = (event: React.SyntheticEvent<HTMLInputElement>) => {
-    const {
-      currentTarget: { value },
-    } = event;
-    setUsername(value);
-  };
-  const onEmailChange = (event: React.SyntheticEvent<HTMLInputElement>) => {
-    const {
-      currentTarget: { value },
-    } = event;
-    setEmail(value);
-  };
-  const onPasswordChange = (event: React.SyntheticEvent<HTMLInputElement>) => {
-    const {
-      currentTarget: { value },
-    } = event;
-    setPassword(value);
-  };
-  const onSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (username === "" || email === "" || password === "") {
-    }
-    console.log(email, username, password);
-  };
-
+  console.log(watch());
   return (
-    <form onSubmit={onSubmit}>
+    <form>
       <input
-        value={username}
-        onChange={onUsernameChange}
+        {...register("username")}
         type="text"
         required
         placeholder="Username"
         minLength={5}
       />
+      <input {...register("email")} type="email" required placeholder="Email" />
       <input
-        value={email}
-        onChange={onEmailChange}
-        type="email"
-        required
-        placeholder="Email"
-      />
-      <input
-        value={password}
-        onChange={onPasswordChange}
+        {...register("password")}
         type="password"
         required
         placeholder="Password"
