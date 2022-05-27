@@ -123,7 +123,7 @@ const Enter: NextPage = () => {
                   register={register("phone")}
                   name="phone"
                   label="Phone number"
-                  type="number"
+                  type="text"
                   kind="phone"
                   required
                 />
