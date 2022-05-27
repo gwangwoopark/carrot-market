@@ -1,4 +1,4 @@
-import { cls } from "../libs/utils";
+import { cls } from "@libs/client/utils";
 
 interface MessageProps {
   message: string;
@@ -14,7 +14,7 @@ export default function Message({
   return (
     <div
       className={cls(
-        "flex items-start space-x-2",
+        "flex  items-start space-x-2",
         reversed ? "flex-row-reverse space-x-reverse" : ""
       )}
     >
